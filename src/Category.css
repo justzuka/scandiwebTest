@@ -1,0 +1,15 @@
+.category {
+	border: none;
+	background: none;
+	height: 100%;
+	font-weight: 600;
+	font-size: 16px;
+	text-transform: uppercase;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+.active {
+	color: var(--green);
+	box-shadow: 0px 2px 0px var(--green);
+}

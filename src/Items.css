@@ -1,0 +1,22 @@
+.categoryName {
+	font-size: 42px;
+	font-weight: 400;
+	margin: 70px;
+	margin-left: 0px;
+}
+.itemsContainer {
+	padding-left: 70px;
+	padding-right: 70px;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	width: 100%;
+}
+.itemsGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 50px;
+	width: 100%;
+}

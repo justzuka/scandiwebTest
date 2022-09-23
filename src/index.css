@@ -1,13 +1,33 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap");
+:root {
+	--green: #5ece7b;
+	--Raleway: "Raleway", sans-serif;
+	--attribute-box-size: 55px;
+	--attribute-color-box-size: 30px;
+	--item-font-size: 16px;
+	--attribute-name-font-size: 18px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.forCartDropDown {
+	--attribute-box-size: 35px;
+	--attribute-color-box-size: 30px;
+	--item-font-size: 10px;
+	--attribute-name-font-size: 12px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--Raleway);
+	font-size: 16px;
+}
+
+button {
+	background: none;
+	border: none;
+}
+
+button:hover {
+	cursor: pointer;
 }

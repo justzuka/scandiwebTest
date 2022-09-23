@@ -1,0 +1,36 @@
+.navbar {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+	height: 70px;
+	z-index: 1;
+	padding-left: 70px;
+	padding-right: 70px;
+}
+
+.categories {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	width: 400px;
+}
+
+.dropDownAndCart {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	gap: 10px;
+	height: 100%;
+	width: 400px;
+}
+.grayBackground {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(214, 214, 214, 0.463);
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}

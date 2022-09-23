@@ -1,0 +1,180 @@
+.cartAllContainer {
+	position: relative;
+}
+
+.cartDropDown {
+	position: absolute;
+	width: 400px;
+	height: 600px;
+	overflow: scroll;
+	top: 25px;
+	background-color: white;
+	right: -20px;
+}
+.cartStart {
+	display: flex;
+	flex-direction: row;
+	gap: 5px;
+}
+.cartItemsCount {
+	display: felx;
+	flex-direction: row;
+}
+.cartMyBag {
+	font-weight: 700;
+}
+.cartDropDown {
+	padding: 16px;
+	display: none;
+}
+
+.cartDropDownActive {
+	display: block;
+}
+.cartDropDownItemsList {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+.cartDropDownItem {
+	display: flex;
+	justify-content: space-between;
+	gap: 5px;
+}
+.cartFirst {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	width: 200px;
+}
+.cartSecond {
+	display: flex;
+	gap: 5px;
+
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+}
+
+.cartSecond img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.cartSecond .cartCount {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 500;
+}
+.cartSecond .cartCount .addSub {
+	width: 30px;
+	height: 30px;
+	border: 2px solid black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+}
+.cartSecond .cartCount .addSub:hover {
+	background-color: rgb(210, 210, 210);
+}
+
+.cartDropDownPrice {
+	font-weight: 500;
+}
+
+.cartDropDown::-webkit-scrollbar {
+	width: 10px;
+	height: 0px;
+	transition: 0.3s;
+}
+
+.cartDropDown::-webkit-scrollbar-track {
+	border-radius: 100px;
+	background: rgb(255, 255, 255, 0.5);
+	transition: 0.3s;
+}
+
+.cartDropDown::-webkit-scrollbar-thumb {
+	background: gray;
+	border-radius: 5px;
+	border: 2px solid rgb(255, 255, 255, 0.5);
+	transition: 0.3s;
+}
+
+.cartDropDown::-webkit-scrollbar-thumb:hover {
+	background: rgba(197, 197, 197, 0.5);
+	transition: 0.3s;
+}
+
+.cartCounter {
+	position: absolute;
+	top: -14px;
+	right: -14px;
+	background-color: black;
+	color: white;
+	border-radius: 100vh;
+	padding: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 24px;
+	height: 24px;
+}
+
+.cartCounterDisplayNone {
+	display: none;
+}
+.cartCounterText {
+	text-align: center;
+}
+
+.cartTwoButtons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.cartViewBagButton {
+	width: 100%;
+	border: 2px solid black;
+	text-align: center;
+	color: black;
+	font-weight: 500;
+	font-size: 20px;
+	padding: 5px;
+}
+
+.cartViewBagButton:hover {
+	background-color: black;
+	color: white;
+	transition: 0.3s;
+}
+
+.cartCheckoutButton {
+	width: 100%;
+	background-color: var(--green);
+	text-align: center;
+	color: white;
+	font-weight: 500;
+	font-size: 20px;
+	padding: 7px;
+}
+
+.bigBrand {
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.bigName {
+	font-size: 18px;
+}
+
+.bigPrice {
+	font-weight: 600;
+	font-size: 18px;
+}

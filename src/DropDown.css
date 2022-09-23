@@ -1,0 +1,55 @@
+.mainContainer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	gap: 5px;
+	position: relative;
+}
+
+.imgContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.symbol {
+	font-weight: 600;
+}
+
+.dropDownList {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0px 100px 100px 0px #e0e0e0;
+	top: 25px;
+	left: -20px;
+	width: 100px;
+	background-color: white;
+}
+
+.listComponent {
+	font-size: 18px;
+
+	text-align: left;
+	font-weight: 600;
+	width: 100%;
+	padding: 12px;
+	padding-left: 20px;
+}
+
+.listComponent:hover {
+	background-color: rgb(197, 196, 196);
+}
+
+.dontShow {
+	display: none;
+}

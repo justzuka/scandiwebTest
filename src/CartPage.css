@@ -1,0 +1,11 @@
+.cartPageContainer {
+	padding-left: 70px;
+	padding-right: 70px;
+}
+
+.cartPageCartHeader {
+	font-weight: 600;
+	font-size: 25px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
