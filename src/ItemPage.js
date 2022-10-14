@@ -13,6 +13,7 @@ class ItemPage extends React.Component {
 		name: "",
 		description: "",
 		actives: [],
+		inStock: false,
 	};
 
 	changeActives = (attributeIndex, index) => {
@@ -22,6 +23,11 @@ class ItemPage extends React.Component {
 	};
 
 	handleAddToCart = () => {
+		if (!this.state.inStock) {
+			alert("Can't Add, Out Of Stock");
+			return;
+		}
+
 		const prod = {
 			photo: this.state.gallery[0],
 			prices: this.state.prices,
@@ -84,6 +90,7 @@ class ItemPage extends React.Component {
 					name: product.name,
 					description: product.description,
 					actives: actvs,
+					inStock: product.inStock,
 				});
 			});
 	}

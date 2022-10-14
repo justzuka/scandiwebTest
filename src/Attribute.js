@@ -10,7 +10,13 @@ class Attribute extends React.Component {
 						this.props.forCartDropDown && "forCartDropDown"
 					} attributeContainer`}
 				>
-					<div className="attributeType">COLOR:</div>
+					<div
+						className={`attributeType ${
+							this.props.forCartDropDown && "attributeTypeCapitalize"
+						}`}
+					>
+						{this.props.forCartDropDown ? "Color:" : "COLOR:"}
+					</div>
 					<div className="attributesList">
 						{this.props.items.map((item, index) => {
 							let col = item.value;
@@ -52,7 +58,13 @@ class Attribute extends React.Component {
 					this.props.forCartDropDown && "forCartDropDown"
 				} attributeContainer`}
 			>
-				<div className="attributeType">{this.props.type}:</div>
+				<div
+					className={`attributeType ${
+						this.props.forCartDropDown && "attributeTypeCapitalize"
+					}`}
+				>
+					{this.props.type}:
+				</div>
 				<div className="attributesList">
 					{this.props.items.map((item, index) => {
 						return (

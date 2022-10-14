@@ -13,10 +13,6 @@ class Navbar extends React.Component {
 		this.setState({ showBackground: val });
 	};
 
-	componentDidMount() {}
-
-	componentDidUpdate() {}
-
 	render() {
 		return (
 			<>
@@ -24,11 +20,13 @@ class Navbar extends React.Component {
 				<div className="navbar">
 					<div className="categories">
 						{this.props.categories.map((name, index) => {
-							const isActive = index === this.props.activeCategory;
+							let isActive = index === this.props.activeCategory;
+							if (this.props.categoryName) {
+								isActive = this.props.categoryName === name;
+							}
 							return (
 								<Category
 									navigate={this.props.navigate}
-									setActiveCategory={this.props.setActiveCategory}
 									key={name}
 									name={name}
 									isActive={isActive}

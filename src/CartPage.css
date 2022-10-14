@@ -4,8 +4,10 @@
 }
 
 .cartPageCartHeader {
-	font-weight: 600;
-	font-size: 25px;
+	font-weight: 700;
+	font-size: 32px;
+	text-transform: uppercase;
+	line-height: 40px;
 	margin-top: 50px;
 	margin-bottom: 50px;
 }

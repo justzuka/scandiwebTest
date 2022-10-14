@@ -6,23 +6,18 @@ class Total extends React.Component {
 		cartCount: this.props.cartCounts
 			.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
 			.toString(),
-		total:
-			Math.floor(
-				this.props.cartProducts
-					.map((product, index) => {
-						if (product.prices.length !== 0) {
-							return (
-								product.prices[this.props.activeCurrency].amount *
-								this.props.cartCounts[index]
-							);
-						}
-						return 0;
-					})
-					.reduce(
-						(previousValue, currentValue) => previousValue + currentValue,
-						0
-					) * 100
-			) / 100,
+		total: this.props.cartProducts
+			.map((product, index) => {
+				if (product.prices.length !== 0) {
+					return (
+						product.prices[this.props.activeCurrency].amount *
+						this.props.cartCounts[index]
+					);
+				}
+				return 0;
+			})
+			.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
+			.toFixed(2),
 	};
 
 	render() {
@@ -36,7 +31,7 @@ class Total extends React.Component {
 								? ""
 								: this.props.cartProducts[0].prices[this.props.activeCurrency]
 										.currency.symbol}
-							{Math.floor((this.state.total / 5) * 100) / 100}
+							{(this.state.total / 5).toFixed(2)}
 						</div>
 					</div>
 					<div className="quantity">

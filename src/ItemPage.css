@@ -19,7 +19,7 @@
 .itemPageSmallPhoto {
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 .itemPageBigPhotoContainer {
@@ -31,7 +31,7 @@
 .itemPageBigPhoto {
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 .info {
@@ -52,6 +52,7 @@
 }
 
 .itemPageAttributesContainer {
+	position: relative;
 	width: 300px;
 }
 
@@ -64,7 +65,10 @@
 	margin-top: 10px;
 }
 .itemPageDescription {
-	width: 100%;
+	position: relative;
+	right: 30px;
+	padding-left: 30px;
+	width: 330px;
 	word-wrap: break-word;
 	height: 100px;
 	overflow: scroll;

@@ -9,6 +9,11 @@
 	width: var(--attribute-color-box-size);
 	height: var(--attribute-color-box-size);
 	padding: 1px;
+	padding-left: 1.5px;
+	padding-top: 1.5px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
 }
 .colorItem {
 	width: 100%;
@@ -16,7 +21,7 @@
 }
 
 .activeItem {
-	border: 2px solid var(--green);
+	border: 2px solid #5ece7b;
 }
 .attributesList {
 	display: flex;
@@ -25,13 +30,17 @@
 .attributeType {
 	text-transform: uppercase;
 	font-size: var(--attribute-name-font-size);
-	font-weight: 700;
+	font-weight: var(--attribute-name-font-weight);
+	line-height: var(--attribute-name-line-height);
 }
-
+.attributeTypeCapitalize {
+	text-transform: capitalize;
+}
 .attributeItemContainer {
 	border: 2px solid black;
-	width: var(--attribute-box-size);
-	height: var(--attribute-box-size);
+
+	min-width: var(--attribute-box-size-width);
+	height: var(--attribute-box-size-height);
 	font-weight: 400;
 }
 .attributeItem {

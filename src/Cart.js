@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import React from "react";
 import "./Cart.css";
 import cart from "./SVGs/CartGray.svg";
@@ -9,11 +10,27 @@ class Cart extends React.Component {
 		this.myRef = React.createRef();
 	}
 
+	handleClickOutside = (event) => {
+		const domNode = ReactDOM.findDOMNode(this);
+
+		if (!domNode || !domNode.contains(event.target)) {
+			if (this.state.showCart) {
+				this.toggleShowCart();
+			}
+		}
+	};
+
 	componentDidMount() {
+		document.addEventListener("click", this.handleClickOutside, true);
 		this.myRef.current.scrollBy({
 			top: localStorage.getItem("cartDropDownScroll"),
 		});
 	}
+
+	componentWillUnmount() {
+		document.removeEventListener("click", this.handleClickOutside, true);
+	}
+
 	state = {
 		showCart: this.props.showCartDef,
 		cartCount: this.props.cartCounts
@@ -64,6 +81,9 @@ class Cart extends React.Component {
 						<button
 							onClick={() => {
 								this.props.navigate("/cartpage");
+								if (this.state.showCart) {
+									this.toggleShowCart();
+								}
 							}}
 							className="cartViewBagButton"
 						>

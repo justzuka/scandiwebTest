@@ -40,14 +40,15 @@
 	font-size: 18px;
 
 	text-align: left;
-	font-weight: 600;
+	font-weight: 500;
 	width: 100%;
 	padding: 12px;
 	padding-left: 20px;
+	line-height: 160%;
 }
 
 .listComponent:hover {
-	background-color: rgb(197, 196, 196);
+	background-color: #eeeeee;
 }
 
 .dontShow {

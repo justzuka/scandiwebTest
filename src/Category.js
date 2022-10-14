@@ -8,9 +8,7 @@ class Category extends React.Component {
 			<button
 				className={`category ${this.props.isActive && "active"}`}
 				onClick={() => {
-					console.log(this.props.navigate);
-					this.props.navigate(`/`);
-					this.props.setActiveCategory(this.props.index);
+					this.props.navigate(`/${this.props.name}`);
 				}}
 			>
 				<div>{this.props.name}</div>

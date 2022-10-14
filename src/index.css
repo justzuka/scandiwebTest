@@ -2,17 +2,25 @@
 :root {
 	--green: #5ece7b;
 	--Raleway: "Raleway", sans-serif;
-	--attribute-box-size: 55px;
-	--attribute-color-box-size: 30px;
+	--attribute-box-size-height: 45px;
+	--attribute-box-size-width: 63px;
+	--attribute-color-box-size: 32px;
 	--item-font-size: 16px;
 	--attribute-name-font-size: 18px;
+	--attribute-name-font-weight: 700;
+	--attribute-name-line-height: 18px;
+	--cart-first-width: 500px;
 }
 
 .forCartDropDown {
-	--attribute-box-size: 35px;
-	--attribute-color-box-size: 30px;
+	--cart-first-width: 200px;
+	--attribute-box-size-height: 24px;
+	--attribute-box-size-width: 24px;
+	--attribute-color-box-size: 16px;
 	--item-font-size: 10px;
-	--attribute-name-font-size: 12px;
+	--attribute-name-font-size: 14px;
+	--attribute-name-font-weight: 400;
+	--attribute-name-line-height: 16px;
 }
 
 * {
@@ -21,6 +29,8 @@
 	box-sizing: border-box;
 	font-family: var(--Raleway);
 	font-size: 16px;
+	line-height: 160%;
+	font-style: normal;
 }
 
 button {

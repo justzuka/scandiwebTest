@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import CartPage from "./CartPage";
-import Cart from "./Cart";
+import Redirect from "./Redirect";
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -26,6 +26,7 @@ class App extends React.Component {
 		cartProducts: [],
 		cartCounts: [],
 		showCart: false,
+		scrollPosition: 0,
 	};
 
 	order = () => {
@@ -145,7 +146,7 @@ class App extends React.Component {
 
 						category(input:{title:"${
 							this.state.categories.length !== 0
-								? this.state.categories[this.state.activeCategory]
+								? this.state.categories[0]
 								: "all"
 						}"}){
 							products{
@@ -162,8 +163,16 @@ class App extends React.Component {
 								}
 							  }
 							  attributes{
-								id
-							  }
+                                id,
+                                name,
+                                type,
+                                items{
+                                    displayValue,
+                                    value,
+                                    id,
+
+                                	}
+                            	}
 							}
 						}
 					}
@@ -176,19 +185,16 @@ class App extends React.Component {
 			});
 	}
 
-	componentDidUpdate(prevProps, prevState) {
-		localStorage.setItem("state", JSON.stringify(this.state));
-
-		if (prevState.activeCategory !== this.state.activeCategory) {
-			client
-				.query({
-					query: gql`
+	getCurrentCategotyItems = async (categoryName) => {
+		if (!categoryName) {
+			return [];
+		}
+		let v = null;
+		await client
+			.query({
+				query: gql`
 					{
-						category(input:{title:"${
-							this.state.categories.length !== 0
-								? this.state.categories[this.state.activeCategory]
-								: "all"
-						}"}){
+						category(input:{title:"${categoryName}"}){
 							products{
 							  name
 							  id
@@ -202,26 +208,54 @@ class App extends React.Component {
 								  symbol
 								}
 							  }
-							  attributes{
-								id
-							  }
+							attributes{
+                                id,
+                                name,
+                                type,
+                                items{
+                                    displayValue,
+                                    value,
+                                    id,
+
+                                	}
+                            }
 
 							}
 						}
 					}
 				`,
-				})
-				.then((result) => {
-					this.setProducts(result.data.category.products);
-				});
+			})
+			.then((result) => {
+				if (result.data.category) {
+					v = result.data.category.products;
+				}
+			});
+
+		return v;
+	};
+
+	componentDidUpdate(prevProps, prevState) {
+		localStorage.setItem("state", JSON.stringify(this.state));
+		if (this.state.scrollPosition !== window.pageYOffset) {
+			this.setState({
+				scrollPosition: window.pageYOffset,
+			});
+			console.log("saving");
 		}
 	}
 
 	render() {
 		const NavbarComp = () => {
 			const navigate = useNavigate();
+
+			const params = useParams();
+			let categoryName = null;
+			if (params) {
+				categoryName = params.categoryname;
+			}
 			return (
 				<Navbar
+					categoryName={categoryName}
 					order={this.order}
 					navigate={navigate}
 					decreaseCount={this.decreaseCount}
@@ -258,12 +292,17 @@ class App extends React.Component {
 
 		const ItemsComp = () => {
 			const navigate = useNavigate();
+			const params = useParams();
+			let categoryName = "all";
+			if (params) {
+				categoryName = params.categoryname;
+			}
 			return (
 				<Items
+					getCurrentCategotyItems={this.getCurrentCategotyItems}
 					addCartProduct={this.addCartProduct}
 					navigate={navigate}
-					categoryName={this.state.categories[this.state.activeCategory]}
-					products={this.state.products}
+					categoryName={categoryName}
 					activeCurrencySymbol={
 						this.state.currencies.length !== 0
 							? this.state.currencies[this.state.activeCurrency].symbol
@@ -294,14 +333,14 @@ class App extends React.Component {
 						<Routes>
 							<Route
 								exact
-								path="/"
+								path="/:categoryname"
 								element={
 									<Home NavbarComp={<NavbarComp />} ItemsComp={<ItemsComp />} />
 								}
 							/>
 							<Route exact path="/item/:id" element={<Wrapper />} />
 							<Route exact path="/cartpage" element={<CartPageComp />} />
-							<Route exact path="*" element={<div>Error</div>} />
+							<Route exact path="*" element={<Redirect />} />
 						</Routes>
 					</BrowserRouter>
 				</div>

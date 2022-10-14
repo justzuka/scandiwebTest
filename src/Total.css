@@ -9,6 +9,19 @@
 	margin-bottom: 10px;
 }
 
+.totalContainer .ttl {
+	font-weight: 500;
+	font-size: 16px;
+
+	line-height: 18px;
+}
+.totalContainer .prc {
+	font-weight: 700;
+	font-size: 16px;
+
+	line-height: 25.6px;
+}
+
 .totalContainerCartPage {
 	display: flex;
 	width: 100%;
@@ -23,10 +36,14 @@
 .totalContainerCartPage .ttl {
 	font-weight: 500;
 	font-size: 24px;
+
+	line-height: 28px;
 }
 .totalContainerCartPage .prc {
 	font-weight: 700;
 	font-size: 24px;
+
+	line-height: 28px;
 }
 
 .quantity {
@@ -40,11 +57,14 @@
 .quantity .txt {
 	font-weight: 400;
 	font-size: 24px;
+	line-height: 28px;
 }
 
 .quantity .val {
 	font-weight: 700;
 	font-size: 24px;
+
+	line-height: 28px;
 }
 
 .tax {
@@ -57,11 +77,14 @@
 .tax .txt {
 	font-weight: 400;
 	font-size: 24px;
+	line-height: 28px;
 }
 
 .tax .val {
 	font-weight: 700;
 	font-size: 24px;
+
+	line-height: 28px;
 }
 
 .forCartPageContainer {

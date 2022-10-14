@@ -19,7 +19,11 @@ class CartItemsList extends React.Component {
 					}
 					return (
 						<div key={index}>
-							<div key={index} className="cartDropDownItem">
+							<div
+								key={index}
+								className={`cartDropDownItem
+								${!this.props.isBigger && "forCartDropDown"}`}
+							>
 								<div className="cartFirst">
 									<div className={this.props.isBigger && "bigBrand"}>
 										{product.brand}
@@ -38,7 +42,9 @@ class CartItemsList extends React.Component {
 													product.prices[this.props.activeCurrency].currency
 														.symbol
 												}
-												{product.prices[this.props.activeCurrency].amount}
+												{product.prices[
+													this.props.activeCurrency
+												].amount.toFixed(2)}
 											</div>
 										)}{" "}
 									</div>
